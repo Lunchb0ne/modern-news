@@ -1,10 +1,10 @@
 import HackerNews from '@/lib/hn';
 
-export default async function New() {
-  const posts = await HackerNews.getNewStories();
+export default async function Ask() {
+  const posts = await HackerNews.getAskStories();
   return (
     <div>
-      <h1>New</h1>
+      <h1>Ask</h1>
       <ul>
         {posts.map((post) => (
           <li key={post.id}>{post.title}</li>
