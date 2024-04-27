@@ -1,3 +1,5 @@
+import { unstable_noStore as noStore } from 'next/cache';
+
 const apiUrl = 'https://hacker-news.firebaseio.com/v0/';
 
 /** Unique ID of a Hacker News item, positive integer */
@@ -78,6 +80,7 @@ export default abstract class HackerNews {
    * @param item Promise which resolves with the ID of item. If item doesn't exist, it resolves with null.
    */
   public static getItem(item: HackerNewsItemId): Promise<HackerNewsItem | null> {
+    noStore();
     return fetch(`${apiUrl}/item/${item}.json`)
       .then((res) => res.json())
       .then((resjson) => resjson as HackerNewsItem);
@@ -88,6 +91,7 @@ export default abstract class HackerNews {
    * @param item Promise which resolves with the user object. If user doesn't exist, it resolves with null.
    */
   public static getUser(userId: HackerNewsUserId): Promise<HackerNewsUser | null> {
+    noStore();
     return fetch(`${apiUrl}/user/${userId}.json`)
       .then((res) => res.json())
       .then((resjson) => resjson as HackerNewsUser);
@@ -98,6 +102,7 @@ export default abstract class HackerNews {
    * @returns Promise which resolves with the ID of the latest item posted on HN
    */
   public static getMaxItemId(): Promise<HackerNewsItemId> {
+    noStore();
     return fetch(`${apiUrl}/maxitem.json`)
       .then((res) => res.json())
       .then((resjson) => resjson as HackerNewsItemId);
@@ -228,6 +233,7 @@ export default abstract class HackerNews {
     items: HackerNewsItemId[];
     profiles: HackerNewsUserId[];
   }> {
+    noStore();
     return fetch(`${apiUrl}/updates.json`)
       .then((res) => res.json())
       .then((resjson) => resjson as { items: HackerNewsItemId[]; profiles: HackerNewsUserId[] });
@@ -239,6 +245,7 @@ export default abstract class HackerNews {
    * @returns Promise which resolves with an array of IDs
    */
   public static getStoryIds(type: HackerNewsStoryType): Promise<HackerNewsItemId[]> {
+    noStore();
     return fetch(`${apiUrl}/${type}stories.json`)
       .then((res) => res.json())
       .then((resjson) => resjson as HackerNewsItemId[]);

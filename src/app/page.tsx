@@ -1,6 +1,5 @@
 import HackerNews from '@/lib/hn';
 import Post from '@/app/components/Post';
-
 export default async function New() {
   const posts = await HackerNews.getNewStories();
 
