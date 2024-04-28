@@ -1,6 +1,5 @@
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { SheetTrigger, SheetContent } from '@/components/ui/sheet';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,7 +10,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Package, Search } from 'lucide-react';
 import Link from 'next/link';
-import LinkBar from './LinkBar';
+import LinkBar from './link-bar';
 
 export async function Header() {
   return (

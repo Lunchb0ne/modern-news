@@ -1,15 +1,15 @@
-import HackerNews from '@/lib/hn';
-import Post from '@/app/components/Post';
+import PostComponent from '@/app/_components/post-component';
+import { getAskStories } from '@/lib/hn';
 
 export default async function Show() {
-  const posts = await HackerNews.getAskStories();
+  const posts = await getAskStories();
 
   return (
     <div>
-      <h1>Ask</h1>
+      <h1 className="text-2xl">Ask</h1>
       <ul>
         {posts.map((post) => (
-          <Post post={post} key={post.id} />
+          <PostComponent post={post} key={post.id} />
         ))}
       </ul>
     </div>
