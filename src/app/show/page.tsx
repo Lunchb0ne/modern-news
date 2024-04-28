@@ -1,5 +1,5 @@
-import { getShowStories } from '@/lib/hn';
 import PostComponent from '@/app/_components/post-component';
+import { getShowStories } from '@/lib/hn';
 
 export default async function Show() {
   const posts = await getShowStories();

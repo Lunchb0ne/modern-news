@@ -1,7 +1,7 @@
 'use client';
-import { getNewStories, type HackerNewsItem } from '@/lib/hn';
-import PostComponent from '@/app/_components/post-component';
 
+import PostComponent from '@/app/_components/post-component';
+import { getNewStories, type HackerNewsItem } from '@/lib/hn';
 import { useState } from 'react';
 
 const AMOUNT = 20;
